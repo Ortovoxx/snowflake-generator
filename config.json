@@ -1,0 +1,10 @@
+{
+    "maxStroke": 10,
+    "minStroke": 1,
+    "maxSubBranches": 100,
+    "minSubBranches": 5,
+    "maxDistanceFromCentre": 200,
+    "minDistanceFromCentre": 10,
+    "maxArmLength": 50,
+    "minArmLength": 5
+}
