@@ -15,7 +15,7 @@ export default function Home() {
 
   const options = generateSnowflakeData(defaultOptions);
 
-  const snowflakeUrl = `https://${window.location.host}/snowflakes/` + encodeURIComponent(base64encode(JSON.stringify(options)))
+  const snowflakeUrl = `https://snowflake.euancaskie.co.uk/snowflakes/` + encodeURIComponent(base64encode(JSON.stringify(options)))
 
   return (
     <div>
