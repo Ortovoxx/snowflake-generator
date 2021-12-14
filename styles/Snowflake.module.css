@@ -1,0 +1,27 @@
+.button {
+  background-color: #ffedd3;
+  border: none;
+  border-radius: 10px;
+  color: #0f0f0f;
+  padding: 15px 32px;
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: #d3d3d3;
+}
+
+.button:active {
+  background-color: #adadad;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -3,12 +3,19 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 import Snowflake from "../components/svg";
+import generateSnowflakeData from "../components/generate";
 
-import options from "../public/config.json"
+import defaultOptions from "../public/config.json"
+
+const { base64encode, base64decode } = require('nodejs-base64');
 
 export default function Home() {
 
   const [count, setCount] = useState(0);
+
+  const options = generateSnowflakeData(defaultOptions);
+
+  const snowflakeUrl = `https://${window.location.host}/snowflakes/` + encodeURIComponent(base64encode(JSON.stringify(options)))
 
   return (
     <div>
@@ -23,7 +30,19 @@ export default function Home() {
           Snowflake generator
         </h1>
 
-        <button className={styles.button} onClick={() => setCount(count + 1)} >Regenerate</button>
+        <div>
+          <button className={styles.button} onClick={() => setCount(count + 1)} >Regenerate</button>
+
+          <button
+            className={styles.button}
+            onClick={() => {
+              navigator.clipboard.writeText(snowflakeUrl);
+            }}
+          >
+            Copy link to snowflake
+          </button>
+        </div>
+
 
         <table>
           <tr>
@@ -31,7 +50,7 @@ export default function Home() {
             <th>Min</th>
             <th>Max</th>
           </tr>
-          {Object.entries(options).map(i => (
+          {Object.entries(defaultOptions).map(i => (
             <tr key={i}>
               <td>{i[0].toLowerCase().split('_').join(' ')}</td>
               <td>{i[1].min}</td>
