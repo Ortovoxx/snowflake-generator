@@ -86,11 +86,9 @@ export default function Snowflake({ options }) {
   const subBranchStroke = gen(1, 3) == 1 ? new Array(subBranchCount).fill(subBranchStrokeSame) : new Array(subBranchCount).fill(0).map(i => gen(STROKE.min, STROKE.max)).slice(0, subBranchCount)
 
   return (
-    <svg version="1.1" width="800" height="600">
-      <g fill="#201e1e" fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none" >
-        <rect x="0" y="0" width="800" height="600" />
-      </g>
-      <g fill="none" fillRule="nonzero" stroke="#ffffff" strokeWidth={baseStroke} strokeLinecap="round" strokeLinejoin="miter" strokeMiterlimit="10" strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none" >
+    <svg version="1.1" viewBox="0 0 800 600" >
+
+      <g fill="none" fillRule="nonzero" stroke="#ffffff" strokeWidth={baseStroke} strokeLinecap="round" strokeLinejoin="miter" strokeMiterlimit="10" >
         <g >
           <line strokeWidth={armStroke} x1={x1} y1={y1} x2="400" y2="500" />
           {subBranches.map(i => (<polyline strokeWidth={subBranchStroke[i]} key={i} points={bottom(distanceFromCentre[i], armLength[i])} />))}

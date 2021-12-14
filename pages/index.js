@@ -11,7 +11,7 @@ export default function Home() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Snowflake Generator</title>
         <meta name="description" content="Generates SVG snowflakes" />
@@ -40,7 +40,9 @@ export default function Home() {
           ))}
         </table>
 
-        <Snowflake count={count} options={options} />
+        <div className={styles.Snowflake}>
+          <Snowflake count={count} options={options} />
+        </div>
       </main>
     </div>
   )
