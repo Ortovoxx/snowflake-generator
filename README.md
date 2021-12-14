@@ -4,6 +4,15 @@ This small project was for COMP1202 Programming 1 at the University of Southampt
 
 It does what it says on the tin and generates snowflakes in SVG form.
 
+## How does it work
+
+Lots and lots of trig.
+
+1. Generates a random number of sub branches and a random length for each sub branch
+2. Generates random stroke sizes for the main branches and a random stroke for each sub branch
+3. Uses lots of trigonometry to draw out all of the lines
+4. Actually draws each line in relation to the SVG
+
 ## Inspiration
 
 [This](https://www.misha.studio/snowflaker/) snowflake generator served as my initial inspiration and you can probably see the similarities.
