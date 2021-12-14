@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 
 import Snowflake from "./_svg";
 
-import options from '../config.json'
+import options from "../public/config.json"
 
 export default function Home() {
 
