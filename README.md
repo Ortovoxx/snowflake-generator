@@ -4,6 +4,14 @@ This small project was for COMP1202 Programming 1 at the University of Southampt
 
 It does what it says on the tin and generates snowflakes in SVG form.
 
+## Inspiration
+
+[This](https://www.misha.studio/snowflaker/) snowflake generator served as my initial inspiration and you can probably see the similarities.
+I tried looking for the source code but couldn't find anything so I ended up just using it for design inspiration.
+Their solution was quite basic so I developed on it further.
+
+[This codegolf solution](https://github.com/codegolf/snowflake) generates snowflakes using only 190 bytes of HTML and JavaScript which was very impressive.
+
 ## Getting Started
 
 First, run the development server:
