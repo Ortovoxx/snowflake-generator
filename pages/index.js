@@ -25,7 +25,21 @@ export default function Home() {
 
         <button className={styles.button} onClick={() => setCount(count + 1)} >Regenerate</button>
 
-        <Snowflake count={count}/>
+        <table>
+          <tr>
+            <th>Property</th>
+            <th>Min</th>
+            <th>Max</th>
+          </tr>
+          {Object.entries(options).map(i => (
+            <tr key={i}>
+              <td>{i[0].toLowerCase().split('_').join(' ')}</td>
+              <td>{i[1].min}</td>
+              <td>{i[1].max}</td>
+            </tr>
+          ))}
+        </table>
+
         <Snowflake count={count} options={options} />
       </main>
     </div>
