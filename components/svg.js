@@ -1,7 +1,4 @@
-
-
 export default function Snowflake({ options }) {
-
   const {
     STROKE,
     SUB_BRANCHES,

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-import Snowflake from "./_svg";
+import Snowflake from "../components/svg";
 
 import options from "../public/config.json"
 
