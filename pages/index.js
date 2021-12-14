@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 import Snowflake from "./_svg";
+
+import options from '../config.json'
 
 export default function Home() {
 
@@ -24,6 +26,7 @@ export default function Home() {
         <button className={styles.button} onClick={() => setCount(count + 1)} >Regenerate</button>
 
         <Snowflake count={count}/>
+        <Snowflake count={count} options={options} />
       </main>
     </div>
   )

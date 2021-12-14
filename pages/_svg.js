@@ -1,15 +1,13 @@
-import {
-  maxStroke,
-  minStroke,
-  maxSubBranches,
-  minSubBranches,
-  maxDistanceFromCentre,
-  minDistanceFromCentre,
-  maxArmLength,
-  minArmLength
-} from '../config.json'
 
-export default function Snowflake() {
+
+export default function Snowflake({ options }) {
+
+  const {
+    STROKE,
+    SUB_BRANCHES,
+    DISTANCE_FROM_CENTRE,
+    ARM_LENGTH
+  } = options;
 
   const gen = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -32,7 +30,7 @@ export default function Snowflake() {
   }
 
   const topLeft = (dis, arm) => {
-    const m = 100/173
+    const m = 100 / 173
 
     const x2 = x1 - (s60 * dis)
     const y2 = -(m * (x1 - x2)) + y1
@@ -41,7 +39,7 @@ export default function Snowflake() {
   }
 
   const topRight = (dis, arm) => {
-    const m = -50/87
+    const m = -50 / 87
 
     const x2 = (s60 * dis) + x1
     const y2 = -(m * (x1 - x2)) + y1
@@ -50,7 +48,7 @@ export default function Snowflake() {
   }
 
   const bottomLeft = (dis, arm) => {
-    const m = -50/87
+    const m = -50 / 87
 
     const x2 = x1 - (c30 * dis)
     const y2 = -(m * (x1 - x2)) + y1
@@ -59,7 +57,7 @@ export default function Snowflake() {
   }
 
   const bottomRight = (dis, arm) => {
-    const m = 100/173
+    const m = 100 / 173
 
     const x2 = x1 + (s60 * dis)
     const y2 = -(m * (x1 - x2)) + y1
@@ -75,17 +73,17 @@ export default function Snowflake() {
     return `${x1 - x},${y} ${x1},${y1 + dis} ${x1 + x},${y}`;
   }
 
-  const subBranchCount = gen(minSubBranches, maxSubBranches);
-  const distanceFromCentre = new Array(subBranchCount).fill(0).map(i => gen(minDistanceFromCentre, maxDistanceFromCentre))
-  const armLength = new Array(subBranchCount).fill(0).map(i => gen(minArmLength, maxArmLength));
+  const subBranchCount = gen(SUB_BRANCHES.min, SUB_BRANCHES.max);
+  const distanceFromCentre = new Array(subBranchCount).fill(0).map(i => gen(DISTANCE_FROM_CENTRE.min, DISTANCE_FROM_CENTRE.max))
+  const armLength = new Array(subBranchCount).fill(0).map(i => gen(ARM_LENGTH.min, ARM_LENGTH.max));
 
   let c = 0;
   const subBranches = new Array(subBranchCount).fill(0).map(i => c++)
 
-  const baseStroke = gen(minStroke, maxStroke)
-  const armStroke = gen(minStroke, maxStroke)
-  const subBranchStrokeSame = gen(minStroke, maxStroke);
-  const subBranchStroke = gen(1, 3) == 1 ? new Array(subBranchCount).fill(subBranchStrokeSame): new Array(subBranchCount).fill(0).map(i => gen(minStroke, maxStroke)).slice(0, subBranchCount)
+  const baseStroke = gen(STROKE.min, STROKE.max)
+  const armStroke = gen(STROKE.min, STROKE.max)
+  const subBranchStrokeSame = gen(STROKE.min, STROKE.max);
+  const subBranchStroke = gen(1, 3) == 1 ? new Array(subBranchCount).fill(subBranchStrokeSame) : new Array(subBranchCount).fill(0).map(i => gen(STROKE.min, STROKE.max)).slice(0, subBranchCount)
 
   return (
     <svg version="1.1" width="800" height="600">
